@@ -2,8 +2,14 @@
 
 import Eos from 'eosjs'
 
-const bankAccountId = 'PLEASE PASTE BANK ID HERE'
-const privateKey = 'PLEASE PASTE SUPER SECRET KEY HERE'
+// Export the Eos lib for debugging
+window.Eos = Eos
+
+const bankAccountId = 'useraaaaaaag'
+const bankAccountPrivateKey = '5KFyaxQW8L6uXFB6wSgC44EsAbzC7ideyhhQ68tiYfdKQp69xKo'
+
+const landlordAccountId = 'useraaaaaaaf'
+const landlordAccountPrivateKey = '5KaqYiQzKsXXXxVvrG8Q3ECZdQAj2hNcvCgGEubRvvq7CU3LySK'
 
 /**
  * @param {ArrayBuffer} buffer
@@ -30,13 +36,14 @@ async function sha256 (input) {
  * @param {string} dateRange
  */
 export async function publishProof (userId, amount, dateRange) {
-  const eos = Eos({ keyProvider: privateKey })
+  const eos = Eos({ keyProvider: bankAccountPrivateKey })
 
-  const proof = sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
+  const plaintext = `${userId} had a minimum balance of ${amount} during ${dateRange}`
+  const ciphertext = await sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
 
   const result = await eos.transaction({
     actions: [{
-      account: 'proofchainacc',
+      account: 'proofs.acc',
       name: 'publish',
       authorization: [{
         actor: bankAccountId,
@@ -44,11 +51,12 @@ export async function publishProof (userId, amount, dateRange) {
       }],
       data: {
         _bank: bankAccountId,
-        _proof: proof
+        _proof: ciphertext
       }
     }]
   })
 
+  console.log(`"${plaintext}" published to the block chain`)
   console.log(result)
 }
 
@@ -59,27 +67,38 @@ export async function publishProof (userId, amount, dateRange) {
  * @returns {Promise<null | string>} - Either the account id of the bank, or null if the proof wasn't valid
  */
 export async function verifyProof (userId, amount, dateRange) {
-  const eos = Eos({ keyProvider: privateKey })
+  const eos = Eos({ keyProvider: landlordAccountPrivateKey })
 
-  const proof = sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
+  const proof = await sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
 
   const result = await eos.getTableRows({
     json: true,
-    code: 'publishproofs',
-    scope: 'publishproofs',
-    table: '_proofs',
-    tableKey: 'proof',
-    lower_bound: proof,
-    limit: 1
+    code: 'proofs.acc',
+    scope: 'proofs.acc',
+    table: 'proofstruct',
+    // tableKey: 'proof',
+    // lower_bound: proof,
+    limit: 1000
   })
+
+  console.log(result.rows)
+
+  // FIXME: CREATE AN INDEX!!
+  const row = result.rows.find((row) => row.proof === proof)
+
+  return (row ? row.bank : null)
 
   // if (result.more) {
   //   throw new Error('More than one result for proof')
   // }
 
-  if (result.rows.length === 0) {
-    return null
-  }
+  // if (result.rows.length === 0) {
+  //   return null
+  // }
 
-  return result.rows[0].bank
+  // return result.rows[0].bank
 }
+
+// Export functions for debugging
+window.publishProof = publishProof
+window.verifyProof = verifyProof
