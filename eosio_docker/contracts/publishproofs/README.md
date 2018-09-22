@@ -2,6 +2,18 @@
 
 ## EOS Smart Contract
 
+### Getting started
+Compiling the code:
+```
+eosiocpp -o work/eosio_docker/contracts/publishproofs/publishproofs.wast work/eosio_docker/contracts/publishproofs/publishproofs.cpp
+eosiocpp -g work/eosio_docker/contracts/publishproofs/publishproofs.abi work/eosio_docker/contracts/publishproofs/publishproofs.cpp
+```
+Deploying the compiled code:
+```
+cleos create account eosio proofs.code EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+
+cleos set contract proofs.code work/eosio_docker/contracts/publishproofs -p proofs.code
+```
 
 ### Publishing a proof
 When the bank's client submits a request for a proof to be attested to, the bank's middleware first parses the proof (which will be constructed in an agree language/format).
