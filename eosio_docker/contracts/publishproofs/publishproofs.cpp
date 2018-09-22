@@ -36,9 +36,7 @@ class publishproofs : public eosio::contract {
     void publish( account_name _bank, std::string& _proof ) {
       // to sign the action with the given account
       require_auth( _bank );
-
-      // prooftable obj(_self, _self); // code, scope
-
+      
       _proofs.emplace( _self, [&]( auto& proof ) {
         proof.prim_key = _proofs.available_primary_key();
         proof.bank = _bank;
