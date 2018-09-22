@@ -1,0 +1,87 @@
+.align-right {
+    text-align: right !important;
+}
+
+.container {
+    width: 1140px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;    
+    margin: 0 auto;
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 40px 0 80px 0;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+}
+.actions button {
+    padding: 12px 25px;
+    background-color: white;
+    text-transform: uppercase;
+    appearance: none;
+    font-size: 16px;
+    border: 0;
+    font-weight: 100;
+}
+
+.header .bank-name {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+.header .bank-name .logo {
+    height: 50px;
+    margin-right: 10px
+}
+
+.header .actions {
+    display: flex;
+    flex-direction: row;
+}
+.header .actions > .action {
+    margin-left: 20px;
+}
+.header .balance {
+    text-align: right;
+}
+.header .balance-title {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.header .balance-value {
+    font-size: 30px;
+}
+
+.content {
+
+}
+.content .container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 3px;
+    position: relative;
+    top: -40px;
+    box-shadow: 0 5px 40px rgba(0,0,0,0.2);
+}
+
+.content table {
+    width: 100%;
+}
+.content thead th {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    color: #222;
+    text-align: left;
+}
+.content tbody tr:first-child td {
+    padding-top: 20px;
+}
+.content tbody td {
+    padding: 20px 0;
+    text-align: left;
+    color: #777;
+}
