@@ -56,6 +56,8 @@ export default class Publish extends Component {
             label="Balance"
             margin="normal"
             width="5"
+            step="500"
+            min="500"
           />
           GBP.
           <br />
