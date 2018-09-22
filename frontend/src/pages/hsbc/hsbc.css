@@ -1,0 +1,61 @@
+
+#publish-component-container {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    z-index: 10;
+}
+#publish-container {
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
+
+
+
+#hsbc-container {
+    background: no-repeat url('//cdn-images-1.medium.com/max/1600/1*BM96IpQMKSbPP07QvUdBdg.png');
+    background-size: 100%;
+    width: 100%;
+    height: 900px;
+}
+
+button.send-info {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #ffffff 0%,#f3f3f3 100%);
+    outline: 0;
+    padding: 8px 11px;
+    color: #666;
+    font-size: 14px;
+    
+    position: absolute;
+    top: 415px;
+    left: 990px;
+}
+
+button.send-info:hover {
+    background: linear-gradient(to top, #ffffff 0%,#f3f3f3 100%);
+    cursor: pointer;
+}
+
+button.send-info img {
+    width: 20px;
+    fill: red;
+}
+
+.send-icon {
+    background: url('http://icons-for-free.com/free-icons/png/512/2540592.png');
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+    background-size: 176%;
+    background-position: -5px -4px;
+}

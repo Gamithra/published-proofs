@@ -1,0 +1,32 @@
+.publish-component {
+    font-family: Roboto, Arial, Helvetica, sans-serif;   
+    background-color: white;
+    padding: 20px;
+}
+
+.header {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+input {
+    margin: 0 5px;
+    padding: 5px;
+}
+
+button {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #ffffff 0%,#f3f3f3 100%);
+    outline: 0;
+    padding: 8px 11px;
+    color: #666;
+    font-size: 14px;
+}
+button:hover {
+    background: linear-gradient(to top, #ffffff 0%,#f3f3f3 100%);
+    cursor: pointer;
+}
+
+.submit-button {
+    margin-top: 20px;
+}
