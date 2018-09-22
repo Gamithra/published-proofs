@@ -1,6 +1,8 @@
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/print.hpp>
+#include <string>
 using namespace eosio;
+using std::string;
 
 // Replace the contract class name when you start your own project
 class publishproofs : public eosio::contract {
@@ -44,15 +46,7 @@ class publishproofs : public eosio::contract {
         proof.timestamp = now();
       });
     }
-
-    /// @abi action
-    void verify(std::string& _proof) {
-      // prooftable obj(_self, _self); // code, scope
-
-      // TODO: return account_name of bank mathcing the proof
-    }
-
 };
 
 // specify the contract name, and export a public action: update
-EOSIO_ABI( publishproofs, (publish)(verify) )
+EOSIO_ABI( publishproofs, (publish))
