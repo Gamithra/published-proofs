@@ -2,6 +2,8 @@
 
 import Eos from 'eosjs'
 
+const EOS_SERVER = 'http://127.0.0.1:8888'
+
 // Export the Eos lib for debugging
 window.Eos = Eos
 
@@ -36,7 +38,7 @@ async function sha256 (input) {
  * @param {string} dateRange
  */
 export async function publishProof (userId, amount, dateRange) {
-  const eos = Eos({ keyProvider: bankAccountPrivateKey })
+  const eos = Eos({ keyProvider: bankAccountPrivateKey, httpEndpoint: EOS_SERVER })
 
   const plaintext = `${userId} had a minimum balance of ${amount} during ${dateRange}`
   const ciphertext = await sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
@@ -67,7 +69,7 @@ export async function publishProof (userId, amount, dateRange) {
  * @returns {Promise<null | string>} - Either the account id of the bank, or null if the proof wasn't valid
  */
 export async function verifyProof (userId, amount, dateRange) {
-  const eos = Eos({ keyProvider: landlordAccountPrivateKey })
+  const eos = Eos({ keyProvider: landlordAccountPrivateKey, httpEndpoint: EOS_SERVER })
 
   const proof = await sha256(`${userId} had a minimum balance of ${amount} during ${dateRange}`)
 
