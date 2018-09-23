@@ -29,7 +29,7 @@ export class Hsbc extends Component {
         {this.state.showPublish && publishComponent}
         <div id="hsbc-container">
           <button onClick={this.handleClick} className="send-info">
-            Send Info
+            Send Proof
             <span className="send-icon"></span>
           </button>
         </div>
