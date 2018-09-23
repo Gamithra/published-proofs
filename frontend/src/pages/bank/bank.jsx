@@ -62,7 +62,7 @@ class Bank extends Component {
 
   render () {
     const transactions = this.getTransactions()
-    const currency = '$'
+    const currency = '£'
 
     return (
       <div id='bank-container'>
