@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './bank.css'
-import logo from '../ver1b-white.png';
+import logo from '../ver1b-white.png'
 import { withRouter } from 'react-router-dom'
-
 
 class Bank extends Component {
   getTransactions () {
@@ -10,51 +9,52 @@ class Bank extends Component {
     const token = params.get('token')
 
     const extra = {
-      name: "Linus Unnebäck",
-      months: "5",
-      success: "Yes",
+      new: true,
+      name: 'Linus Unnebäck',
+      months: '5',
+      success: 'Yes',
       bank: 'Bank of America',
       date: '2018-09-23',
       amount: 4000
     }
 
     const base = [
-        {
-          name: "Chris Conway",
-          bank: "HSBC",
-          months: "3",
-          success: "Yes",
-          date: "2018-09-22",
-          amount: 2000
-        },
-        { name: "Joseph Pickett",
-          bank: "Bank of America",
-          months: "2",
-          success: "Yes",
-          date: "2018-09-22",
-          amount: 1500
-        },
-        { name: "Dan Potter",
-          bank: "J. P. Morgan",
-          months: "12",
-          success: "Yes",
-          date: "2018-09-22",
-          amount: 2500
-        },
-        { name: "Sophia McCarthy",
-          bank: "HSBC",
-          months: "1",
-          success: "No",
-          date: "2018-09-22",
-          amount: 3000
-        },
-        { name: "Woodrow Chambers",
-          bank: "Bank of Scotland",
-          months: "36",
-          success: "Yes",
-          date: "2018-09-22",
-          amount: 1500
-        },
+      {
+        name: 'Chris Conway',
+        bank: 'HSBC',
+        months: '3',
+        success: 'Yes',
+        date: '2018-09-22',
+        amount: 2000
+      },
+      { name: 'Joseph Pickett',
+        bank: 'Bank of America',
+        months: '2',
+        success: 'Yes',
+        date: '2018-09-22',
+        amount: 1500
+      },
+      { name: 'Dan Potter',
+        bank: 'J. P. Morgan',
+        months: '12',
+        success: 'Yes',
+        date: '2018-09-22',
+        amount: 2500
+      },
+      { name: 'Sophia McCarthy',
+        bank: 'HSBC',
+        months: '1',
+        success: 'No',
+        date: '2018-09-22',
+        amount: 3000
+      },
+      { name: 'Woodrow Chambers',
+        bank: 'Bank of Scotland',
+        months: '36',
+        success: 'Yes',
+        date: '2018-09-22',
+        amount: 1500
+      }
     ]
 
     return (token ? [extra, ...base] : base)
@@ -94,7 +94,7 @@ class Bank extends Component {
               </thead>
               <tbody>
                 {transactions.map((tx, i) => (
-                  <tr key={i}>
+                  <tr key={i} style={{ backgroundColor: tx.new ? 'rgba(0,255,0,0.1)' : '' }}>
                     <td>{tx.name}</td>
                     <td>{tx.date}</td>
                     <td>{tx.bank}</td>

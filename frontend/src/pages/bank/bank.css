@@ -4,7 +4,7 @@
 
 .container {
     width: 1140px;
-    font-family: Roboto, Arial, Helvetica, sans-serif;    
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     margin: 0 auto;
 }
 
@@ -61,7 +61,7 @@
 }
 .content .container {
     background-color: white;
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 3px;
     position: relative;
     top: -40px;
@@ -85,6 +85,14 @@
     padding: 20px 0;
     text-align: left;
     color: #777;
+}
+.content thead th:first-child,
+.content tbody td:first-child {
+    padding-left: 20px;
+}
+.content thead th:last-child,
+.content tbody td:last-child {
+    padding-right: 20px;
 }
 
 .success {
