@@ -21,7 +21,7 @@
 
 
 #hsbc-container {
-    background: no-repeat url('//cdn-images-1.medium.com/max/1600/1*BM96IpQMKSbPP07QvUdBdg.png');
+    background: no-repeat url('/hsbc-screenshot.png');
     background-size: 100%;
     width: 100%;
     height: 900px;
@@ -35,7 +35,7 @@ button.send-info {
     padding: 8px 11px;
     color: #666;
     font-size: 14px;
-    
+
     position: absolute;
     top: 415px;
     left: 990px;

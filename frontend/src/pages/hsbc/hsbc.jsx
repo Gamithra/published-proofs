@@ -10,7 +10,7 @@ export class Hsbc extends Component {
   }
 
   handleClick = () => {
-    console.log('click');  
+    console.log('click');
     this.setState({
       showPublish: true
     });
