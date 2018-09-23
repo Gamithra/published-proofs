@@ -9,39 +9,40 @@ export class Bank extends Component {
   getTransactions() {
     return [
         {
-          vendor: "Lorem ipsum dolor",
+          name: "Linus Conway",
+          bank: "HSBC",
+          months: "3",
+          success: "Yes",
           date: "2018-09-22",
-          amount: 20
+          amount: 2000
         },
-        {
-          vendor: "Consectetur adipiscing elit",
+        { name: "Joseph Pickett",
+          bank: "Bank of America",
+          months: "2",
+          success: "Yes",
           date: "2018-09-22",
-          amount: 20
+          amount: 1500
         },
-        {
-          vendor: "Proin lectus sem",
+        { name: "Dan Potter",
+          bank: "J. P. Morgan",
+          months: "12",
+          success: "Yes",
           date: "2018-09-22",
-          amount: 20
+          amount: 2500
         },
-        {
-          vendor: "Malesuada sed ipsum",
+        { name: "Sophia McCarthy",
+          bank: "HSBC",
+          months: "1",
+          success: "No",
           date: "2018-09-22",
-          amount: 20
+          amount: 3000
         },
-        {
-          vendor: "Lacinia fermentum libero",
+        { name: "Woodrow Chambers",
+          bank: "Bank of Scotland",
+          months: "36",
+          success: "Yes",
           date: "2018-09-22",
-          amount: 20
-        },
-        {
-          vendor: "Commodo nulla tincidunt ",
-          date: "2018-09-22",
-          amount: 20
-        },
-        {
-          vendor: "Vivamus lacinia fringilla",
-          date: "2018-09-22",
-          amount: 20
+          amount: 1500
         },
     ];
   }
@@ -78,7 +79,7 @@ export class Bank extends Component {
             <table cellPadding="0" cellSpacing="0">
               <thead>
                 <tr>
-                  <th>User</th>
+                  <th>Name</th>
                   <th>Date</th>
                   <th>Bank</th>
                   <th>Amount</th>
@@ -89,12 +90,12 @@ export class Bank extends Component {
               <tbody>
                 {transactions.map((tx, i) => (
                   <tr key={i}>
-                    <td>{tx.vendor}</td>
+                    <td>{tx.name}</td>
                     <td>{tx.date}</td>
-                    <td>Nice Bank</td>
+                    <td>{tx.bank}</td>
                     <td>{currency}{tx.amount.toFixed(2)}</td>
-                    <td> 6 </td>
-                    <td className="align-right">Yes</td>
+                    <td>{tx.months}</td>
+                    <td className={`align-right ${tx.success === 'Yes' ? 'success' : 'fail'}`}>{tx.success}</td>
                   </tr>
                 ))}
               </tbody>
