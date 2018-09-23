@@ -61,15 +61,6 @@ export class Bank extends Component {
                Hello, Dan!
                <br/>
                <button className="link"> Log out </button>
-            {/*<div className="action balance">
-                    <div className="balance-title">Your balance:</div>
-                    <div className="balance-value">
-                        {currency}{transactions.reduce((prev, current) => prev + current.amount, 0).toFixed(2)}
-                    </div>
-                </div>
-                <div className="action">
-                    <button>Send Info</button>
-                </div>*/}
             </div>
           </div>
         </div>
