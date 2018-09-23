@@ -30,3 +30,44 @@ button:hover {
 .submit-button {
     margin-top: 20px;
 }
+
+.company-name {
+    margin: -20px -20px 50px -20px;
+    background-color: black;
+    font-size: 26px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    
+}
+
+.logo {
+    margin: 10px 10px;
+    height: 8%;
+    width: 8%;
+}
+
+.publish-form {
+    text-align: center;
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.publish-form input {
+    height: 30%;
+    margin: 8px 0;
+}
+
+.footer {
+    text-align: right;
+    font-size: 10px;
+}
+
+.underline {
+    text-decoration: underline;
+}

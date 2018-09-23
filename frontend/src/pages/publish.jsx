@@ -9,6 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import './publish.css';
+import logo from './ver1b-white.png';
 
 import { publishProof } from "../lib/publishproof";
 
@@ -39,17 +40,21 @@ export default class Publish extends Component {
   render() {
     return (
       <div className="publish-component">
-        <h2 className="header">Publish Proof</h2>
-
-        <form onSubmit={this.handleFormEvent}>
+      {/*<h2 className="header">Publish Proof</h2>*/}
+         <div className="company-name">
+                <img src={logo} alt="logo" className="logo" />
+         </div>
+        <form onSubmit={this.handleFormEvent} className="publish-form">
+       
           During the last
-          <input
+          
+          <p> <input
             name="months"
             type="number"
             width="30"
-          />
-          months, I've maintained an average balance of at least
-          <input
+          /> months, </p> 
+          I've maintained an average balance of at least
+          <p> <input
             name="balance"
             type="number"
             autoComplete="off"
@@ -58,13 +63,18 @@ export default class Publish extends Component {
             width="5"
             step="500"
             min="500"
-          />
-          GBP.
+          /> GBP. </p>
+
+          <br/>
+          Recipient's e-mail address: <br/>
+          <input name="recipient" />
           <br />
           <button className="submit-button" type="submit">
-            Publish Proof
+            Request proof
           </button>
+          <br/>
         </form>
+          <p className="footer"> Powered by <span className="underline">Sanna</span> </p>
       </div>
     );
   }

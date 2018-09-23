@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./bank.css";
-import logo from './ver1b-white.png';
+import logo from '../ver1b-white.png';
 
 export class Bank extends Component {
   constructor(props) {
