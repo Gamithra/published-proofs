@@ -1,15 +1,26 @@
-import React, { Component } from "react";
-import "./bank.css";
+import React, { Component } from 'react'
+import './bank.css'
 import logo from '../ver1b-white.png';
+import { withRouter } from 'react-router-dom'
 
-export class Bank extends Component {
-  constructor(props) {
-    super(props);
-  }
-  getTransactions() {
-    return [
+
+class Bank extends Component {
+  getTransactions () {
+    const params = new URLSearchParams(this.props.location.search)
+    const token = params.get('token')
+
+    const extra = {
+      name: "Linus Unnebäck",
+      months: "5",
+      success: "Yes",
+      bank: 'Bank of America',
+      date: '2018-09-23',
+      amount: 4000
+    }
+
+    const base = [
         {
-          name: "Linus Conway",
+          name: "Chris Conway",
           bank: "HSBC",
           months: "3",
           success: "Yes",
@@ -44,39 +55,33 @@ export class Bank extends Component {
           date: "2018-09-22",
           amount: 1500
         },
-    ];
+    ]
+
+    return (token ? [extra, ...base] : base)
   }
-  render() {
-    const transactions = this.getTransactions();
-    const currency = "$";
+
+  render () {
+    const transactions = this.getTransactions()
+    const currency = '$'
 
     return (
-      <div id="bank-container">
-        <div className="header">
-          <div className="container">
-            <div className="bank-name">
-                <img src={logo} alt="logo" className="logo" />
+      <div id='bank-container'>
+        <div className='header'>
+          <div className='container'>
+            <div className='bank-name'>
+              <img src={logo} alt='logo' className='logo' />
                 Sanna
             </div>
-            <div className="actions">
+            <div className='actions'>
                Hello, Dan!
-               <br/>
-               <button className="link"> Log out </button>
-            {/*<div className="action balance">
-                    <div className="balance-title">Your balance:</div>
-                    <div className="balance-value">
-                        {currency}{transactions.reduce((prev, current) => prev + current.amount, 0).toFixed(2)}
-                    </div>
-                </div>
-                <div className="action">
-                    <button>Send Info</button>
-                </div>*/}
+              <br />
+              <button className='link'> Log out </button>
             </div>
           </div>
         </div>
-        <div className="content">
-          <div className="container">
-            <table cellPadding="0" cellSpacing="0">
+        <div className='content'>
+          <div className='container'>
+            <table cellPadding='0' cellSpacing='0'>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -84,7 +89,7 @@ export class Bank extends Component {
                   <th>Bank</th>
                   <th>Amount</th>
                   <th>Months</th>
-                  <th className="align-right">Success</th>
+                  <th className='align-right'>Success</th>
                 </tr>
               </thead>
               <tbody>
@@ -103,8 +108,8 @@ export class Bank extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Bank;
+export default withRouter(Bank)
