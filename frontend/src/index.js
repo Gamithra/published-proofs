@@ -22,7 +22,6 @@ const App = () => (
     {/* <Route exact path='/publish' component={Publish} /> */}
     <Route exact path='/verify' component={Verify}/> 
     <Route exact path='/sanna' component={Bank}/>
-    />
   </div>
 )
 
