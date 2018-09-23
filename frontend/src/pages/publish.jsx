@@ -65,14 +65,13 @@ export default class Publish extends Component {
             min="500"
           /> GBP. </p>
 
-          <br/>
-          Recipient's e-mail address: <br/>
+          
+          Recipient's e-mail address: <br />
           <input name="recipient" />
-          <br />
           <button className="submit-button" type="submit">
             Request proof
           </button>
-          <br/>
+          
         </form>
           <p className="footer"> Powered by <span className="underline">Sanna</span> </p>
       </div>
