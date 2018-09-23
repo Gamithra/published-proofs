@@ -57,7 +57,7 @@ export default class Publish extends Component {
         Recipient's e-mail address: <br />
         <input name='recipient' />
         <button className='submit-button' type='submit'>
-          Request proof
+          Send proof
         </button>
 
       </form>
