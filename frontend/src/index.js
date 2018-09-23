@@ -11,6 +11,7 @@ const Menu = () => (
     <li><Link to='/bank'>Bank</Link></li>
     <li><Link to='/publish'>Publish Proof</Link></li>
     <li><Link to='/verify'>Verify Proof</Link></li>
+    <li><Link to='/sanna'>Sanna</Link></li>
   </ul>
 )
 
@@ -19,7 +20,9 @@ const App = () => (
     <Route exact path='/' component={Menu} />
     <Route exact path='/bank' component={Hsbc} />
     {/* <Route exact path='/publish' component={Publish} /> */}
-    <Route exact path='/verify' component={Verify} />
+    <Route exact path='/verify' component={Verify}/> 
+    <Route exact path='/sanna' component={Bank}/>
+    />
   </div>
 )
 

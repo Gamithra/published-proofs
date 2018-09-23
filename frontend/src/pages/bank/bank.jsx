@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./bank.css";
+import logo from './ver1b-white.png';
 
 export class Bank extends Component {
   constructor(props) {
@@ -53,11 +54,14 @@ export class Bank extends Component {
         <div className="header">
           <div className="container">
             <div className="bank-name">
-                <img src="https://i.imgur.com/DdZzVZ7.png" className="logo" />
-                EOS Bank
+                <img src={logo} alt="logo" className="logo" />
+                Sanna
             </div>
             <div className="actions">
-                <div className="action balance">
+               Hello, username!
+               <br/>
+               <button className="link"> Log out </button>
+            {/*<div className="action balance">
                     <div className="balance-title">Your balance:</div>
                     <div className="balance-value">
                         {currency}{transactions.reduce((prev, current) => prev + current.amount, 0).toFixed(2)}
@@ -65,7 +69,7 @@ export class Bank extends Component {
                 </div>
                 <div className="action">
                     <button>Send Info</button>
-                </div>
+                </div>*/}
             </div>
           </div>
         </div>
@@ -74,9 +78,12 @@ export class Bank extends Component {
             <table cellPadding="0" cellSpacing="0">
               <thead>
                 <tr>
-                  <th>Vendor</th>
+                  <th>User</th>
                   <th>Date</th>
-                  <th className="align-right">Amount</th>
+                  <th>Bank</th>
+                  <th>Amount</th>
+                  <th>Months</th>
+                  <th className="align-right">Success</th>
                 </tr>
               </thead>
               <tbody>
@@ -84,7 +91,10 @@ export class Bank extends Component {
                   <tr key={i}>
                     <td>{tx.vendor}</td>
                     <td>{tx.date}</td>
-                    <td className="align-right">{currency}{tx.amount.toFixed(2)}</td>
+                    <td>Nice Bank</td>
+                    <td>{currency}{tx.amount.toFixed(2)}</td>
+                    <td> 6 </td>
+                    <td className="align-right">Yes</td>
                   </tr>
                 ))}
               </tbody>

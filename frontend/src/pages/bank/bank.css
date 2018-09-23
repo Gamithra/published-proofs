@@ -18,11 +18,12 @@
     justify-content: space-between;
 }
 .actions button {
-    padding: 12px 25px;
+    padding: 6px 7px;
+    margin: 10px 12px;
     background-color: white;
     text-transform: uppercase;
     appearance: none;
-    font-size: 16px;
+    font-size: 12px;
     border: 0;
     font-weight: 100;
 }
@@ -39,7 +40,7 @@
 
 .header .actions {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .header .actions > .action {
     margin-left: 20px;
@@ -85,3 +86,4 @@
     text-align: left;
     color: #777;
 }
+
