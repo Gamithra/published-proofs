@@ -58,7 +58,7 @@ export class Bank extends Component {
                 Sanna
             </div>
             <div className="actions">
-               Hello Dan
+               Hello, Dan!
                <br/>
                <button className="link"> Log out </button>
             {/*<div className="action balance">
